@@ -4,6 +4,8 @@
   "description": "Cabango ---",
   "main": "index.js",
   "scripts": {
+    "compile": "webpack",
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -11,7 +13,11 @@
   "license": "ISC",
   "dependencies": {
     "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-react": "^6.24.1"
+    "babel-preset-react": "^6.24.1",
+    "express": "^4.16.2",
+    "webpack": "^3.10.0",
+    "webpack-dev-middleware": "^2.0.4"
   }
 }

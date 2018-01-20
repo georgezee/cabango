@@ -12,3 +12,19 @@ Run:
 ```
 npm install
 ```
+
+Compile
+---
+
+Run:
+```
+npm run compile
+```
+
+Start
+---
+
+Run:
+```
+npm start
+```
