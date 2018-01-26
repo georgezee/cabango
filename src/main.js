@@ -2,11 +2,11 @@ console.log('Cabango loaded.');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Counter from './Counter';
+import App from './containers/App';
 
 document.addEventListener('DOMContentLoaded', function() {
   ReactDOM.render(
-    React.createElement(Counter),
-    document.getElementById('mount')
+    <App/>,
+    document.getElementById('root')
   );
 });
