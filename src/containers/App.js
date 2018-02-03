@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from '../components/Logo';
 import WelcomeMessage from '../components/WelcomeMessage';
-import Letters from '../components/Letters';
+import LetterBox from '../components/LetterBox';
 
 /**
  * App Component containing all other elements.
@@ -21,6 +21,7 @@ class App extends React.Component {
         <Logo/>
         <WelcomeMessage username={user}/>
         <Letters/>
+        <LetterBox letters={letters}/>
       </div>
     );
   }
