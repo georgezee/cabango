@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from '../components/Logo';
 import WelcomeMessage from '../components/WelcomeMessage';
 import LetterBox from '../components/LetterBox';
+import Letters from '../utils/Letters';
 
 /**
  * App Component containing all other elements.
@@ -16,11 +17,11 @@ class App extends React.Component {
 
   render() {
     var user = "Guest";
+    var letters = Letters.Generate();
     return (
       <div>
         <Logo/>
         <WelcomeMessage username={user}/>
-        <Letters/>
         <LetterBox letters={letters}/>
       </div>
     );
