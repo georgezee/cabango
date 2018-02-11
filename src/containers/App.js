@@ -8,21 +8,45 @@ import Letters from '../utils/Letters';
  * App Component containing all other elements.
  */
 class App extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       count: 0,
+      round: {
+        letters: Letters.Generate(),
+        stage: 'guess',
+      }
     };
+  }
+
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.roundTick(),
+      5000
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
+  roundTick() {
+    // TODO: Change to Voting stage.
+    this.setState({
+      round: {
+        letters: Letters.Generate(),
+        stage: 'guess',
+      }
+    });
   }
 
   render() {
     var user = "Guest";
-    var letters = Letters.Generate();
     return (
       <div>
         <Logo/>
         <WelcomeMessage username={user}/>
-        <LetterBox letters={letters}/>
+        <LetterBox letters={this.state.round.letters}/>
       </div>
     );
   }
