@@ -44,6 +44,7 @@ class App extends React.Component {
     var user = "Guest";
     return (
       <div>
+      <div id="main">
         <Logo/>
         <WelcomeMessage username={user}/>
         <LetterBox letters={this.state.round.letters}/>

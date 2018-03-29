@@ -2,7 +2,7 @@ import React from 'react';
 
 const LetterBox = (props) => {
   return (
-     <div id="letters">{props.letters}</div>
+     <div id="letters" className="flex-item">{props.letters}</div>
   );
 }
 
