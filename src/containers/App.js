@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from '../components/Logo';
 import WelcomeMessage from '../components/WelcomeMessage';
 import LetterBox from '../components/LetterBox';
+import InputBox from '../components/InputBox';
 import Letters from '../utils/Letters';
 
 /**
@@ -15,6 +16,7 @@ class App extends React.Component {
       round: {
         letters: Letters.Generate(),
         stage: 'guess',
+        input: '',
       }
     };
   }
@@ -43,11 +45,11 @@ class App extends React.Component {
   render() {
     var user = "Guest";
     return (
-      <div>
       <div id="main">
         <Logo/>
         <WelcomeMessage username={user}/>
         <LetterBox letters={this.state.round.letters}/>
+        <InputBox input={this.state.round.input}/>
       </div>
     );
   }
