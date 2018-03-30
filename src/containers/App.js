@@ -5,6 +5,7 @@ import RoundStage from '../components/RoundStage';
 import LetterBox from '../components/LetterBox';
 import InputBox from '../components/InputBox';
 import Letters from '../utils/Letters';
+import fire from '../utils/fire';
 
 /**
  * App Component containing all other elements.
@@ -74,7 +75,9 @@ class App extends React.Component {
       // Handle other types of keypresses.
       switch (event.key) {
         case "Enter":
-          console.log("Submitting...");
+          console.log("Submitting ....");
+          let response = fire.database().ref('guesses').push( round.input );
+          console.log(response);
           round.input = '';
           break;
         case "Backspace":
