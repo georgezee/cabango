@@ -35,24 +35,63 @@ class App extends React.Component {
 
   roundTick() {
     // TODO: Change to Voting stage.
+    const round = this.state.round;
+    round.letters = Letters.Generate();
+    round.stage = 'guess';
     this.setState({
-      round: {
-        letters: Letters.Generate(),
-        stage: 'guess',
-      }
+      round,
     });
   }
 
   render() {
     var user = "Guest";
     return (
-      <div id="main">
-        <Logo/>
-        <WelcomeMessage username={user}/>
-        <LetterBox letters={this.state.round.letters}/>
-        <InputBox input={this.state.round.input}/>
+      <div id="key-block" tabIndex="1" onKeyDown={this._handleKeyDown.bind(this)}>
+        <div id="main">
+          <Logo/>
+          <WelcomeMessage username={user}/>
+          <RoundStage stage={this.state.round.stage}/>
+          <LetterBox letters={this.state.round.letters}/>
+          <InputBox input={this.state.round.input}/>
+        </div>
       </div>
     );
+  }
+
+  _handleKeyDown (event) {
+
+    //console.log(round);
+    //console.log(event.key);
+
+    // Copy the state.
+    const round = this.state.round;
+
+    var keyCode = String.fromCharCode(event.keyCode);
+    // Only allow printable characters.
+    if (/^[\u0020-\u007e\u00a0-\u00ff]*$/.test(keyCode)) {
+      round.input = round.input + event.key;
+    } else {
+      // Handle other types of keypresses.
+      switch (event.key) {
+        case "Enter":
+          console.log("Submitting...");
+          round.input = '';
+          break;
+        case "Backspace":
+        case "Delete":
+          console.log("Deleting...");
+          round.input = round.input.slice(0,-1);
+          break;
+        default:
+          console.log("Key not handled: " + event.key);
+      }
+    }
+
+    console.log(round);
+    // update state
+    this.setState({
+        round,
+    });
   }
 }
 export default App;

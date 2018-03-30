@@ -12,17 +12,9 @@ class InputBox extends React.Component {
     }
 
     return (
-     <div id="input-box" tabIndex="1" className="flex-item" onKeyPress={this._handleKeyPress}>{textToShow}</div>
+     <div id="input-box" className="flex-item">{textToShow}</div>
     );
 
-  }
-
-  _handleKeyPress (event) {
-    console.log("aaa");
-    console.log(event.key);
-    if(event.key == 'Enter'){
-      console.log('enter press here! ')
-    }
   }
 }
 
