@@ -11,6 +11,10 @@ body {
   background-color: white;
 }
 
+#key-block {
+  height: 100vh;
+}
+
 #root {
   font-family: sans-serif;
   font-size: 20px;
@@ -43,13 +47,6 @@ body {
   padding: 24px;
   border-radius: 7px;
   height: 20vh;
-  background-color:red;
-}
-#welcome {
-  background-color: green;
-}
-#logo {
-  background-color: yellow;
 }
 
 #main {
@@ -66,3 +63,15 @@ body {
   justify-content: center;
   align-self: center;
 }
+
+/* Debug container styles start * /
+#letters {
+  background-color:red;
+}
+#welcome {
+  background-color: green;
+}
+#logo {
+  background-color: yellow;
+}
+/* Debug container styles end */
