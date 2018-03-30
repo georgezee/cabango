@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from '../components/Logo';
 import WelcomeMessage from '../components/WelcomeMessage';
+import RoundStage from '../components/RoundStage';
 import LetterBox from '../components/LetterBox';
 import InputBox from '../components/InputBox';
 import Letters from '../utils/Letters';
