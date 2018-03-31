@@ -64,6 +64,15 @@ class App extends React.Component {
   }
 
   _getGuesses() {
+    var UCRef = fire.database().ref("guesses");
+    UCRef.on('value', snapshot => {
+      const round = this.state.round;
+      //console.log(snapshot.val());
+      round.guesses = snapshot.val();
+      this.setState({
+        round,
+      });
+    });
   }
 
   _handleKeyDown (event) {
