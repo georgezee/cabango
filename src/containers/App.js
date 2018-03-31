@@ -3,6 +3,7 @@ import Logo from '../components/Logo';
 import WelcomeMessage from '../components/WelcomeMessage';
 import RoundStage from '../components/RoundStage';
 import LetterBox from '../components/LetterBox';
+import GuessList from '../components/GuessList';
 import InputBox from '../components/InputBox';
 import Letters from '../utils/Letters';
 import fire from '../utils/fire';
@@ -17,6 +18,7 @@ class App extends React.Component {
       count: 0,
       round: {
         letters: Letters.Generate(),
+        guesses: [],
         stage: 'guess',
         input: '',
       }
@@ -42,6 +44,7 @@ class App extends React.Component {
     this.setState({
       round,
     });
+    this._getGuesses();
   }
 
   render() {
@@ -53,10 +56,14 @@ class App extends React.Component {
           <WelcomeMessage username={user}/>
           <RoundStage stage={this.state.round.stage}/>
           <LetterBox letters={this.state.round.letters}/>
+          <GuessList guesses={this.state.round.guesses}/>
           <InputBox input={this.state.round.input}/>
         </div>
       </div>
     );
+  }
+
+  _getGuesses() {
   }
 
   _handleKeyDown (event) {
@@ -69,7 +76,8 @@ class App extends React.Component {
 
     var keyCode = String.fromCharCode(event.keyCode);
     // Only allow printable characters.
-    if (/^[\u0020-\u007e\u00a0-\u00ff]*$/.test(keyCode)) {
+    if (/[a-zA-Z0-9-_ ]/.test(keyCode)) {
+    //if (/^[\u0020-\u007e\u00a0-\u00ff]*$/.test(keyCode)) {
       round.input = round.input + event.key;
     } else {
       // Handle other types of keypresses.

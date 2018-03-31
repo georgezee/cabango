@@ -7,4 +7,3 @@ const LetterBox = (props) => {
 }
 
 export default LetterBox;
-
