@@ -54,10 +54,10 @@ class App extends React.Component {
         <div id="main">
           <Logo/>
           <WelcomeMessage username={user}/>
-          <RoundStage stage={this.state.round.stage}/>
           <LetterBox letters={this.state.round.letters}/>
           <GuessList guesses={this.state.round.guesses}/>
           <InputBox input={this.state.round.input}/>
+          <RoundStage stage={this.state.round.stage}/>
         </div>
       </div>
     );
