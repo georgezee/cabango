@@ -48,8 +48,7 @@ class App extends React.Component {
   }
 
   render() {
-    var nameGenerator = require('naampje');
-    var user = nameGenerator.name(); //"Guest";
+    var user = "Guest";
     return (
       <div id="key-block" tabIndex="1" onKeyDown={this._handleKeyDown.bind(this)}>
         <div id="main">
