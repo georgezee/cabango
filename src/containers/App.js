@@ -55,7 +55,7 @@ class App extends React.Component {
           <Logo/>
           <WelcomeMessage username={user}/>
           <LetterBox letters={this.state.round.letters}/>
-          <GuessList guesses={this.state.round.guesses}/>
+          <GuessList guesses={this.state.round.guesses} onClick={this._handleClick.bind(this)}/>
           <InputBox input={this.state.round.input}/>
           <RoundStage stage={this.state.round.stage}/>
         </div>
@@ -73,6 +73,14 @@ class App extends React.Component {
         round,
       });
     });
+  }
+
+  _handleClick (event) {
+    console.log("clicked");
+    console.log(event);
+    console.log(event.target);
+    let guessID = event.target.id;
+    let response = fire.database().ref('votes').push( guessID );
   }
 
   _handleKeyDown (event) {
